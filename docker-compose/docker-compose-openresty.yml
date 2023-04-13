@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  openresty:
+    image: openresty/openresty:1.21.4.1-0-alpine
+    container_name: openresty
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/openresty/conf.d:/etc/nginx/conf.d
+      - ./data/openresty/logs:/usr/local/openresty/nginx/logs
+      - ./data/openresty/lua:/usr/local/openresty/nginx/lua
+      - ./data/openresty/lualib/resty/rocketmq/:/usr/local/openresty/lualib/resty/rocketmq/
